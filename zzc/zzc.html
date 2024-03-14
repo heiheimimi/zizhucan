@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>显示日期和星期</title>
+<style>
+  html {
+    font-size: 16px; /* 设置根元素字体大小 */
+  }
+  #container {
+    position: relative;
+    display: inline-block;
+  }
+  #date {
+    position: absolute;
+    bottom: 2.5rem; /* 相对于根元素字体大小的1.5倍偏移 */
+    right: 4rem; /* 相对于根元素字体大小的1.5倍偏移 */
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem; /* 相对于字体大小的0.5倍内边距 */
+    font-size: 1.7rem; /* 使用相对单位，相对于根元素字体大小 */
+	font-weight: bold; /* 加粗 */
+  }
+
+  /* 在较小的屏幕上，减小字体大小 */
+  @media (max-width: 600px) {
+    html {
+      font-size: 14px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div id="container">
+  <img src=zzc.jpg alt="Your Image" width="400">
+  <div id="date"></div>
+</div>
+
+<script>
+  // 获取当前日期和星期
+  const now = new Date();
+  const weekdays = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+  const day = now.getDate();
+  const weekday = weekdays[now.getDay()];
+  const month = now.getMonth() + 1;
+  const year = now.getFullYear();
+  
+  // 在页面上显示日期和星期
+  const dateElement = document.getElementById('date');
+  dateElement.textContent = month + '/' + day + ' ' + weekday;
+</script>
+
+</body>
+</html>
